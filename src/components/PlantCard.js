@@ -1,17 +1,18 @@
 import React from "react";
+import Button from "./Button"
+ 
+function PlantCard({plants}) {
 
-function PlantCard() {
+
   return (
-    <li className="card" data-testid="plant-item">
-      <img src={"https://via.placeholder.com/400"} alt={"plant name"} />
-      <h4>{"plant name"}</h4>
-      <p>Price: {"plant price"}</p>
-      {true ? (
-        <button className="primary">In Stock</button>
-      ) : (
-        <button>Out of Stock</button>
-      )}
+    plants.map((plant) =>
+    <li className="card" data-testid="plant-item" key={plant.id} >
+      <img src={plant.image} alt={plant.name} />
+      <h4>{plant.name}</h4>
+      <p>Price: {plant.price}</p>
+      <Button />
     </li>
+    )
   );
 }
 
